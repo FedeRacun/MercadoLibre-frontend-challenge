@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import reportWebVitals from './reportWebVitals';
 
 // Styles
-import './index.css';
+import './index.sass';
 
 // Imports
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Core from './core/Core';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Core />
   </React.StrictMode>,
   document.getElementById('root')
 );
