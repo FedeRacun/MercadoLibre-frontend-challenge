@@ -4,7 +4,7 @@ import './Header.sass';
 
 export const Header = () => {
   return (
-    <header className="nav-header">
+    <header className="header">
       <SearchBox />
       {/* <[example]-nav-header/> */}
     </header>

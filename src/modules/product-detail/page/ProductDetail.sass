@@ -1,0 +1,91 @@
+@import "src/shared/sass/size"
+@import "src/shared/sass/colors"
+
+.product-detail-container
+    background-color: white
+    width: 90vw
+    max-width: 1200px
+    min-height: 80vh
+    display: flex
+    justify-content: center
+    align-items: center
+    margin: auto
+
+    @media screen and (max-width: $tablet-small)
+        width: 100vw
+
+    .product-container
+        padding: 32px
+        height: 100%
+        width: 100%
+
+        .section-product--buy
+            display: flex
+            justify-content: space-between
+
+            @media screen and (max-width: $tablet-small)
+                flex-direction: column
+
+            .section-product--specs
+                width: 30%
+
+                @media screen and (max-width: $tablet)
+                    width: 100%
+
+            .specs-container
+                width: 50%
+
+                @media screen and (max-width: $tablet)
+                    width: 100%
+
+                .product-status
+                    font-size: 14px
+                    margin-bottom: 16px
+
+                    @media screen and (max-width: $mobile-small)
+                        font-size: 5vw
+
+                .product-title
+                    font-size: 24px
+
+                    @media screen and (max-width: $mobile-small)
+                        font-size: 8vw
+
+                .product-price
+                    padding: 32px 0px
+                    font-size: 46px
+
+                    @media screen and (max-width: $mobile-small)
+                        font-size: 12vw
+
+            .button-container
+                .button-comprar
+                    padding: 1rem
+                    color: white
+                    background-color: $btn-color
+                    width: 100%
+                    border-radius: 4px
+                    font-size: 18px
+                    font-weight: 400
+                    border: none
+
+                    @media screen and (max-width: $mobile-small)
+                        font-size: 10vw
+                        padding: 6vw
+
+        .section-detail
+            margin-top: 32px
+
+            .section-detail--title
+                font-size: 28px
+
+                @media screen and (max-width: $mobile-small)
+                    font-size: 10vw
+
+            .section-detail--description
+                margin-top: 32px
+                white-space: pre-line
+                font-size: 16px
+
+                @media screen and (max-width: $mobile-small)
+                    font-size: 8vw

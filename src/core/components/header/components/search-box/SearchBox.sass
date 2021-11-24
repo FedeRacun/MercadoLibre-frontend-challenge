@@ -1,21 +1,21 @@
 @import "src/shared/sass/size"
 
-.nav-header--container
+.search-box--container
     max-width: 1200px
     height: 100%
     margin: auto
-    margin-left: 10vw
+    // margin-left: 10vw
     position: relative
     display: flex
     font-size: 18px
 
-    @media screen and (max-width: $tablet)
-        margin-left: 15px
+    @media screen and (max-width: $desktop)
+        width: 90%
 
-    @media screen and (max-width: $mobile-large)
-        margin-left: 15px
+    @media screen and (max-width: $tablet-small)
+        width: 90%
 
-    .nav-header--logo
+    .search-box--logo
         background-image: url(/shared/assets/logos/logo_large.png)
         background-repeat: no-repeat
         background-size: 130px;
@@ -25,34 +25,30 @@
         text-indent: -999px
         position: absolute
 
+        @media screen and (max-width: $tablet-small)
+            background-image: url(/shared/assets/logos/logo_small.png)
+            background-size: 46px
+            left: 3px
+            width: 88px
+
         @media screen and (max-width: $mobile-large)
             display: none
 
-        @media screen and (max-width: $tablet-small)
-            background-image: url(/shared/assets/logos/logo_small.png)
-            background-size: 50px;
-
-    .navbar-header--searchbox
+    .search-box--form
         height: 100%
-        width: 50vw;
+        width: calc( 100% - 164px );
         display: flex
         align-items: center
         position: absolute
         left: 164px
 
-        @media screen and (max-width: $tablet)
-            left: 150px
-
         @media screen and (max-width: $tablet-small)
-            left: 15vw
-            width: 70vw
+            width: calc( 100% - 88px );
+            left: 88px
 
         @media screen and (max-width: $mobile-large)
-            left: 9vw
-
-        @media screen and (max-width: $mobile-small)
-            width: 77vw
-            left: 5vw
+            width: 100%
+            left: 0px
 
         .searchbox-input
             &input:focus, textarea:focus, select:focus
@@ -60,21 +56,11 @@
 
             -webkit-appearance: none;
             width: 100%
-            max-width: 600px
             height: 70%
             border: none
             border-radius: 5px 0px 0px 5px
             font-size: 18px
             padding: 15px
-
-            @media screen and (max-width: $tablet)
-                width: 350px
-
-            @media screen and (max-width: $mobile-large)
-                width: 248px
-
-            @media screen and (max-width: $mobile-small)
-                width: 180px
 
         .searchbox-input--button
             height: 70%

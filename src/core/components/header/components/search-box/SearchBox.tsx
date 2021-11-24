@@ -1,6 +1,8 @@
 import React from 'react';
-import {useNavigate} from 'react-router-dom';
+
 import './SearchBox.sass';
+
+import {Link, useNavigate} from 'react-router-dom';
 
 export const SearchBox: React.FC = () => {
   let navigate = useNavigate();
@@ -13,11 +15,11 @@ export const SearchBox: React.FC = () => {
 
   return (
     <>
-      <div className="nav-header--container">
-        <a className="nav-header--logo" href="/">
+      <div className="search-box--container">
+        <Link className="search-box--logo" to={'/'}>
           Mercado Libre Argentina - Donde compras y vendes de todo
-        </a>
-        <form onSubmit={handleSubmit} className="navbar-header--searchbox">
+        </Link>
+        <form onSubmit={handleSubmit} className="search-box--form">
           <input name="query" type="text" placeholder="Busca productos, marcas y mas..." className="searchbox-input" />
           <button className="searchbox-input--button"></button>
         </form>

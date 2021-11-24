@@ -11,7 +11,8 @@ searchCtrl.getSearch = async (req, res) => {
     let data = await response.json();
     res.json(await searchModel(data));
   } catch (error) {
-    console.log('Ocurrio un error: ', error);
+    console.error('Ocurrio un error: ', error);
+    res.status(500).send('Ocurrio un error al consultar a la API de MeLi');
   }
 };
 

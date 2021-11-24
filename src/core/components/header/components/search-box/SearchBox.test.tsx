@@ -1,5 +1,6 @@
 import {render, screen} from '@testing-library/react';
 import {SearchBox} from './SearchBox';
+import {MemoryRouter} from 'react-router-dom';
 
 const mockedUsedNavigate = jest.fn();
 
@@ -9,7 +10,11 @@ jest.mock('react-router-dom', () => ({
 }));
 
 test('renders learn react link', () => {
-  render(<SearchBox />);
+  render(
+    <MemoryRouter>
+      <SearchBox />
+    </MemoryRouter>
+  );
   const linkElement = screen.getByText(/Mercado Libre Argentina/);
   expect(linkElement).toBeInTheDocument();
 });

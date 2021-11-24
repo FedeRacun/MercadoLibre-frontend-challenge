@@ -1,21 +1,23 @@
-const productModel = (data, detail) => {
+const productModel = (product, detail) => {
+  const numberWithDots = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
   return {
     author: {
       name: 'Federico',
       lastname: 'Knispel'
     },
     items: {
-      id: data.id,
-      title: data.title,
+      id: product.id,
+      title: product.title,
       price: {
-        currency: data.currency_id,
-        amount: Math.round(data.price),
-        decimals: parseInt(data.price.toString().slice(-2))
+        currency: product.currency_id,
+        amount: numberWithDots(product.price),
+        decimals: parseInt(product.price.toString().slice(-2))
       },
-      picture: data.thumbnail,
-      condition: data.condition,
-      free_shipping: data.shipping.free_shipping,
-      sold_quantity: data.sold_quantity,
+      picture: product.thumbnail,
+      condition: product.condition === 'new' ? 'Nuevo' : 'Usado',
+      free_shipping: product.shipping.free_shipping,
+      sold_quantity: product.sold_quantity,
       description: detail
     }
   };
