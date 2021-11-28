@@ -1,16 +1,18 @@
-import React, {useEffect, useState} from 'react';
+// React
+import React, {Suspense, useEffect, useState} from 'react';
 import {useSearchParams} from 'react-router-dom';
 
+// SASS
 import './ProductsList.sass';
-
-// Components
-import {LayoutItem} from '../../../shared/components/layout-item/LayoutItem';
 
 // Intefaces
 import ResponseAPIInterface from '../interfaces/responseApiList.interface';
-import {SpinerComponent} from '../../../shared/components/loader-spinner/LoaderSpinner';
 
-export const ProductsList: React.FC = () => {
+// Components
+import {SpinerComponent} from '../../../shared/components/loader-spinner/LoaderSpinner';
+const LayoutItem = React.lazy(() => import('../../../shared/components/layout-item/LayoutItem'));
+
+export default function ProductsList() {
   const [isLoading, setLoading] = useState<boolean>();
   const [products, setProducts] = useState<ResponseAPIInterface>();
   const [searchParams] = useSearchParams();
@@ -32,12 +34,14 @@ export const ProductsList: React.FC = () => {
   return (
     <>
       {isLoading ? (
-        <div className="products-container">
-          <SpinerComponent />
-        </div>
+        <SpinerComponent />
       ) : products?.items.length ? (
-        products?.items.map((product: any) => {
-          return <LayoutItem key={product.id} product={product} />;
+        products.items.map((product: any) => {
+          return (
+            <Suspense fallback={<SpinerComponent />}>
+              <LayoutItem key={product.id} product={product} />
+            </Suspense>
+          );
         })
       ) : (
         <div className="products-container">
@@ -46,4 +50,4 @@ export const ProductsList: React.FC = () => {
       )}
     </>
   );
-};
+}

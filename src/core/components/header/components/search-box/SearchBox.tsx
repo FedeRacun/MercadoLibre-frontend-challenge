@@ -5,7 +5,7 @@ import './SearchBox.sass';
 import {Link, useNavigate} from 'react-router-dom';
 
 export const SearchBox: React.FC = () => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
 
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -21,7 +21,7 @@ export const SearchBox: React.FC = () => {
         </Link>
         <form onSubmit={handleSubmit} className="search-box--form">
           <input name="query" type="text" placeholder="Busca productos, marcas y mas..." className="searchbox-input" />
-          <button className="searchbox-input--button"></button>
+          <button className="searchbox-input--button" aria-label="Buscar"></button>
         </form>
       </div>
     </>

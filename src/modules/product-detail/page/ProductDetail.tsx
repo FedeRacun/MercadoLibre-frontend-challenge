@@ -12,7 +12,7 @@ import {SpinerComponent} from '../../../shared/components/loader-spinner/LoaderS
 import ProductDetailInterface from '../interfaces/productDetail.interfaces';
 import ResponseAPIDetailInterface from '../interfaces/responseApiDetail.interfaces';
 
-export const ProductDetail: React.FC = () => {
+export default function ProductDetail() {
   const [isLoading, setLoading] = useState<boolean>();
   const [product, setProduct] = useState<ProductDetailInterface>();
   const {id} = useParams();
@@ -58,7 +58,9 @@ export const ProductDetail: React.FC = () => {
               </div>
 
               <div className="button-container">
-                <button className="button-comprar">Comprar</button>
+                <button className="button-comprar" aria-label="Comprar">
+                  Comprar
+                </button>
               </div>
             </div>
           </section>
@@ -76,4 +78,4 @@ export const ProductDetail: React.FC = () => {
       )}
     </div>
   );
-};
+}

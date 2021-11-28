@@ -7,12 +7,19 @@ import {Link} from 'react-router-dom';
 // Interfaces
 import productsListInterface from '../../../modules/products-list/interfaces/productsList.interfaces';
 
-export const LayoutItem: React.FC<{product: productsListInterface}> = ({product}) => {
+export default function LayoutItem({product}: {product: productsListInterface}) {
   return (
     <>
       {
         <Link to={`/items/${product.id}`} className="layoutContainer">
-          <img loading="lazy" className="layoutContainer-image" src={product.picture} alt={product.title} />
+          <img
+            loading="lazy"
+            className="layoutContainer-image"
+            src={product.picture}
+            alt={product.title}
+            height={180}
+            width={180}
+          />
 
           <div>
             <div className="price-container">
@@ -30,4 +37,4 @@ export const LayoutItem: React.FC<{product: productsListInterface}> = ({product}
       }
     </>
   );
-};
+}
