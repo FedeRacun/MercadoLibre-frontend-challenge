@@ -15,6 +15,7 @@
 | ✅    | `Terminado`          |
 | 🚀    | `Mejora tecnica`     |
 | 🔜    | `Propuesta a futuro` |
+| 👾   | `Deuda tecnica`  |
 
 ## Challenge
 
@@ -31,6 +32,10 @@
 - Antes de hacer un push, el codigo se formatea y ejecuta los test 🚀
 - Agregar ESlint para tener una estructura de codigo en comun 🔜
 - Dockerizar el ambiente del Front 🔜
+- Cambiar el nombre de las clases de CSS implementando BEM como naming convention 👾
+- Audite el codigo con Lighthouse en modo incognito, orientado a mobile y sobre la pantalla de "Resultados de busqueda", estos fueron los resultados:
+![image](https://user-images.githubusercontent.com/20817564/143728854-ebb16fde-6026-4b71-9b29-39407f0611f1.png)
+
 
 ### Backend
 
@@ -40,3 +45,4 @@
   - /api/items/:id ✅
     - devolver los resultados en el formato indicado ✅
 - Dockerizar el ambiente del Back 🔜
+
