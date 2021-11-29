@@ -8,6 +8,7 @@ export const SpinerComponent = () => {
         <span className="spinner-inner-2"></span>
         <span className="spinner-inner-3"></span>
       </div>
+      <span>Cargando...</span>
     </div>
   );
 };

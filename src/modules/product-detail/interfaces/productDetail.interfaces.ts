@@ -11,4 +11,5 @@ export default interface ProductDetailInterface {
   };
   sold_quantity: number;
   title: string;
+  category: string;
 }

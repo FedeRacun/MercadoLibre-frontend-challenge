@@ -1,3 +1,5 @@
+const numberWithDots = require('../utils/numberWithDots');
+
 const searchModel = data => {
   if (data.results == '' || undefined || null) {
     return {
@@ -10,7 +12,48 @@ const searchModel = data => {
     };
   }
 
-  const numberWithDots = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  /**
+   * La categoria puede estar tanto dentro de 'filters' como de 'available_filters',
+   * como no estoy seguro por donde va a llegar, hago una busqueda recursiva por si el dia
+   * de mañana esto cambia. Esta funcion recibe la respuesta de la API, la propiedad que
+   * queremos buscar y nos devuelve la parte del objeto que contiene dicha propiedad
+   */
+  const findCategory = (response, id) => {
+    if (!!response) {
+      if (response['id'] === id) {
+        return response;
+      }
+
+      let result;
+      let prop;
+      for (prop in response) {
+        if (response.hasOwnProperty(prop) && typeof response[prop] === 'object') {
+          result = findCategory(response[prop], id);
+          if (result) {
+            return result;
+          }
+        }
+      }
+      return result;
+    }
+  };
+
+  /**
+   * Devuelve un array con el listado de categorias a la que pertenece nuestro producto
+   */
+  const getFullPathCategory = category => {
+    const arrayOfPath = category.values[0].path_from_root;
+    let categories;
+
+    if (!!arrayOfPath) {
+      categories = arrayOfPath.map(element => element.name);
+
+      return categories;
+    }
+    categories = category.values.reduce((prev, current) => (prev.results > current.results ? prev : current));
+    categories = [categories.name];
+    return categories;
+  };
 
   return {
     author: {
@@ -29,7 +72,7 @@ const searchModel = data => {
       condition: product.condition,
       free_shipping: product.shipping.free_shipping
     })),
-    categories: data.available_filters[0].values.reduce((prev, current) => (prev.results > current.results ? prev : current))
+    categories: getFullPathCategory(findCategory(data, 'category'))
   };
 };
 

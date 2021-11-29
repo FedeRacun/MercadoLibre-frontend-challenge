@@ -2,28 +2,29 @@ import {render, screen} from '@testing-library/react';
 import {MemoryRouter} from 'react-router-dom';
 import LayoutItem from './LayoutItem';
 
-describe('Products List Test: ', () => {
-  test('should response algo', () => {
-    const objPrueba = {
-      condition: 'string',
+describe('Layout Item Test: ', () => {
+  test('should create Layout Item component', () => {
+    const mockResponse = {
+      condition: 'Nuevo',
+      sold_quantity: 0,
       free_shipping: true,
-      id: 'string',
-      picture: 'string',
+      id: 'MLA1114021609',
+      picture: 'http://http2.mlstatic.com/D_872905-MLA46115014432_052021-I.jpg',
       price: {
-        amount: 'string',
-        currency: 'string',
-        decimals: 1
+        amount: '180.000',
+        currency: 'ARS',
+        decimals: 0
       },
-      title: 'Titulo'
+      title: 'Apple iPhone 11 (128 Gb) - Morado'
     };
 
     render(
       <MemoryRouter>
-        <LayoutItem product={objPrueba} />
+        <LayoutItem product={mockResponse} />
       </MemoryRouter>
     );
 
-    const linkElement = screen.getByText(/Titulo/);
-    expect(linkElement).toBeInTheDocument();
+    const titleElement = screen.getByText(/Apple iPhone 11/);
+    expect(titleElement).toBeInTheDocument();
   });
 });

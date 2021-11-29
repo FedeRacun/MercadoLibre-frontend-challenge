@@ -2,6 +2,21 @@
 @import "src/shared/sass/size"
 
 .products-container
+    position: relative
+    width: 90vw;
+    max-width: 1200px;
+    min-height: 80vh;
+    margin: auto;
+
+    @media screen and (max-width: $mobile-large)
+        width: 100%
+
+    .products-container-category
+        top: -2rem
+        position: absolute
+        color: $text-detail-color
+
+.empty-result
     background-color: #ffffff
     width: 100%
     max-width: 1200px
@@ -17,6 +32,11 @@
     justify-content: center
     align-items: center
     color: $text-primary-color
+    position: relative
 
     @media screen and (max-width: $desktop)
         width: 90%
+
+    @media screen and (max-width: $tablet)
+        width: 100%
+        padding: 2rem

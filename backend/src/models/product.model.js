@@ -1,6 +1,6 @@
-const productModel = (product, detail) => {
-  const numberWithDots = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+const numberWithDots = require('../utils/numberWithDots');
 
+const productModel = (product, detail) => {
   return {
     author: {
       name: 'Federico',
@@ -18,6 +18,7 @@ const productModel = (product, detail) => {
       condition: product.condition === 'new' ? 'Nuevo' : 'Usado',
       free_shipping: product.shipping.free_shipping,
       sold_quantity: product.sold_quantity,
+      category: product.category,
       description: detail
     }
   };

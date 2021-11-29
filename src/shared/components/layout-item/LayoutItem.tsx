@@ -5,9 +5,9 @@ import './LayoutItem.sass';
 import {Link} from 'react-router-dom';
 
 // Interfaces
-import productsListInterface from '../../../modules/products-list/interfaces/productsList.interfaces';
+import ProductsListInterface from '../../../modules/products-list/interfaces/productsList.interfaces';
 
-export default function LayoutItem({product}: {product: productsListInterface}) {
+export default function LayoutItem({product}: ProductsListInterface) {
   return (
     <>
       {

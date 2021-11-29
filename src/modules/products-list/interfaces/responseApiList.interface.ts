@@ -1,7 +1,7 @@
-import productsListInterface from './productsList.interfaces';
+import ProductsListInterface from './productsList.interfaces';
 
 export default interface ResponseAPIInterface {
-  items: productsListInterface[];
-  categories: string;
+  items: ProductsListInterface[];
+  categories: string[];
   author: {name: string; lastname: string};
 }

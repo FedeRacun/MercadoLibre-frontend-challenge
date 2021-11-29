@@ -2,11 +2,12 @@
 import './ProductDetail.sass';
 
 // React
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 
 // Components
 import {SpinerComponent} from '../../../shared/components/loader-spinner/LoaderSpinner';
+import {BreadCrumb} from '../../../shared/components/bread-crumbs/BreadCrumb';
 
 // Interfaces
 import ProductDetailInterface from '../interfaces/productDetail.interfaces';
@@ -30,9 +31,14 @@ export default function ProductDetail() {
     getData();
   }, [id]);
 
-  return (
-    <div className="product-detail-container">
-      {!isLoading && !!product?.id ? (
+  // Render Product Detail
+  if (!isLoading && !!product?.id) {
+    return (
+      <div className="product-detail-container">
+        <div className="product-container-category">
+          <BreadCrumb category={product.category} />
+        </div>
+
         <div className="product-container">
           <section className="section-product--buy">
             <picture>
@@ -73,9 +79,13 @@ export default function ProductDetail() {
             </div>
           </section>
         </div>
-      ) : (
-        <SpinerComponent />
-      )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="product-detail-container">
+      <SpinerComponent />
     </div>
   );
 }
