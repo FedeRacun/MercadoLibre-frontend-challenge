@@ -75,3 +75,15 @@ En el backend hay 2 actores principales que son los `controllers` y los `models`
 - Los controllers una vez que ya hayan obtenido la data desde la API, se lo pasan a los `models` para que estos la devuelvan en el formato requerido.
 
 Despues hay otros componentes como el `routes.js` que es donde se van a definir los endpoints, el `config.js`que es donde vamos a poder setear la configuracion de nuestro servidor, como el puerto por ej. u otras variables de entorno, y hay una carpeta `/utils` que es donde almacenaremos todas aquellas funciones que puedan ser reutilizadas en distintas partes del back
+
+# Screenshot
+
+#### Searchbar
+![image](https://user-images.githubusercontent.com/20817564/143826192-c9b2662e-8855-41e8-befe-b6889a55fdee.png)
+
+
+#### Product List
+![image](https://user-images.githubusercontent.com/20817564/143826035-d607445a-afdf-4b15-8627-17f1d1058f85.png)
+
+#### Product Detail
+![image](https://user-images.githubusercontent.com/20817564/143825883-da58c1c5-16f3-431a-8058-d8b5f75da8e2.png)
